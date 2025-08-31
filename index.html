@@ -193,6 +193,7 @@
             font-size: 14px;
             font-family: 'Roboto', sans-serif;
             transition: 0.3s;
+            text-align: center;
         }
         
         th {
@@ -265,7 +266,6 @@
 </head>
 
 <body>
-
     <!-- Banner Section -->
     <div class="banner-container">
         <!-- Clock -->
@@ -345,57 +345,72 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Routine Data
+        // Routine Data (Room added properly ✅)
         const routine = {
             "Saturday": [{
                 time: "2:30 PM-3:45 PM",
-                sub: "PME"
+                sub: "PME",
+                room: "612"
             }, {
                 time: "3:45 PM-5:00 PM",
-                sub: "CCS"
+                sub: "CCS",
+                room: "403"
             }],
             "Sunday": [{
                 time: "12:15 PM-1:30 PM",
-                sub: "SE"
+                sub: "SE",
+                room: "403"
             }, {
                 time: "1:30 PM-2:30 PM",
-                sub: "SEL"
+                sub: "SEL",
+                room: "604"
             }, {
                 time: "2:30 PM-3:45 PM",
-                sub: "DMNT"
+                sub: "DMNT",
+                room: "903"
             }],
             "Monday": [{
                 time: "11:00 AM-12:15 PM",
-                sub: "CN"
+                sub: "SE",
+                room: "410"
             }, {
                 time: "2:30 PM-3:45 PM",
-                sub: "DC"
+                sub: "CN",
+                room: "612"
             }, {
                 time: "3:45 PM-5:00 PM",
-                sub: "DC"
+                sub: "DC",
+                room: "613"
             }],
             "Tuesday": [{
                 time: "8:30 AM-9:45 AM",
-                sub: "CCS"
+                sub: "CCS",
+                room: "510"
             }, {
                 time: "9:45 AM-11:00 AM",
-                sub: "CN"
+                sub: "CN",
+                room: "510"
             }, {
                 time: "11:00 AM-1:30 PM",
-                sub: "SD"
+                sub: "SD",
+                room: "604"
             }, {
                 time: "2:30 PM-3:45 PM",
-                sub: "PM"
+                sub: "PM",
+                room: "611"
             }, {
                 time: "3:45 PM-5:00 PM",
-                sub: "DC"
+                sub: "DC",
+                room: "611"
             }],
             "Wednesday": [{
                 time: "10:10 AM-11:00 AM",
-                sub: "SD"
+                sub: "SD",
+                room: "609"
             }, {
                 time: "11:00 AM-1:30 PM",
-                sub: "CN"
+                sub: "CN",
+                room: "601"
             }]
         };
 
@@ -430,7 +445,7 @@
                         const start = timeToMins(startTime);
                         const end = timeToMins(endTime);
                         const highlight = nowMins >= start && nowMins <= end ? "current" : "";
-                        row += `<td><div class="class-box ${highlight}">${cls.time}<br>${cls.sub}</div></td>`;
+                        row += `<td><div class="class-box ${highlight}">${cls.time}<br>${cls.sub}<br>Room: ${cls.room}</div></td>`;
                     } else row += "<td></td>";
                 }
                 row += "</tr>";
@@ -440,7 +455,6 @@
         populateTable();
         setInterval(populateTable, 60000);
     </script>
-
 </body>
 
 </html>
